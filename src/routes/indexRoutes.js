@@ -1,4 +1,4 @@
-/* SE DEBERIA MOSTRAR EL INDEX Q VIENDE DEL indexControllers.js */
+/* SE DEBERIA MOSTRAR EL INDEX Q VIENE DEL indexControllers.js */
 
 const indexRoutes = require("express").Router();
 const { indexControllers } = require("../controllers/indexControllers");

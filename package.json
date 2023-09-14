@@ -4,7 +4,7 @@
   "description": "Proyecto de Foro",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon ./src/app.js"
   },
   "author": "Gustavo S Muller",
   "license": "ISC",
