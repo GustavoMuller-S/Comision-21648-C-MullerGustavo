@@ -1,0 +1,26 @@
+### TRAER USUARIO
+GET http://localhost:3036/editUser/1
+
+### BUSCAR UN USUARIO POR ID
+GET http://localhost:3036/user/1
+
+### CREAR USUARIO
+POST http://localhost:3036/user
+Content-Type: application/json
+
+{
+    "firstName": "usuario04",
+    "email": "user04"
+}
+
+### ACTUALIZAR UN USUARIO
+PUT http://localhost:3036/user/3
+Content-Type: application/json
+
+{
+    "firstName": "usuario",
+    "email": "user"
+}
+
+### ELIMINAR USUARIO
+DELETE http://localhost:3036/user/6

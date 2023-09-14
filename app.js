@@ -5,12 +5,14 @@ const morgan = require(`morgan`);
 const cors = require(`cors`);
 const path = require("path");
 const { TestConnection, port } = require("./src/database/database");
+const indexRoutes = require("./src/routes/indexRoutes");
+const userRoutes = require("./src/routes/userRoutes");
 
 const app = express();
 
 /* MIDDLEWARES */
 app.use(express.urlencoded({ extended: false }));
-app.use(morgan(`combined`));
+app.use(morgan(`Tiny`));
 app.use(cors());
 app.use(express.json());
 
@@ -29,6 +31,9 @@ app.set("views", path.join(__dirname, "views"));
 
 
 TestConnection();
+
+app.use(indexRoutes);
+app.use(userRoutes);
 
 app.get('/', (req, res) => {
   res.send('Estamos en Vivo')
