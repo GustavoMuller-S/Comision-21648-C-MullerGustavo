@@ -1,31 +1,12 @@
 const User = require("../models/userModels");
 const userControllers = {};
 
-//TODO: INDEX USER
-// controllerUsers.indexUsers = (req, res) => {
-//   res.render("user", { titleuser: "Usuarios" });
-// };
-//TODO: GETALL
+/* CARGARIA ACA LOS DATOS DEL USUARIO */
 userControllers.getAllUsers = async (req, res) => {
   const users = await User.findAll();
 
   res.render("user", { titleUser: "Usuarios", results: users });
 };
-
-//TODO: GET
-// controllerUsers.getUserById = async (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     const user = await User.findOne({ where: { id: id } });
-//     if (!user) {
-//       return res.status(400).send({
-//         message: "Usuario no encontrado en la base de datos",
-//       });
-//     } else {
-//       return res.send(user);
-//     }
-//   } catch (error) {}
-// };
 
 //TODO: POST: PAGINA DE INICIO
 userControllers.formCreateUser = (req, res) => {
@@ -41,8 +22,7 @@ userControllers.postUser = async (req, res) => {
     return res.status(400).send({
       message: "Por favor ingresar los datos del nombre y apellido del usuario",
     });
-  //manejamos el error con trycatch
-  try {
+   try {
     const user = {
       firstName: firstName,
       email: email,
@@ -54,8 +34,7 @@ userControllers.postUser = async (req, res) => {
     } else {
       const newUser = await User.create(user);
       return res.redirect("/user");
-      //res.send({ message: "Usuario creado con exito" });
-    }
+        }
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
@@ -90,10 +69,10 @@ userControllers.putUser = async (req, res) => {
     { where: { id: id } }
   );
   return res.redirect("/user");
-  //res.send({ message: "Usuario editado con exito" });
+
 };
 
-//TODO:DELETE
+/* DELETE TODO */
 
 userControllers.deleteUser = (req, res) => {
   const { id } = req.params;
@@ -101,13 +80,9 @@ userControllers.deleteUser = (req, res) => {
   //validacion para saber si ya existe o no en la bd
   if (deleteUser) {
     return res.redirect("/user");
-    // res
-    //   .status(200)
-    //   .send({ message: "Usuario eliminado de la base de datos" });
   } else {
-    // return res
-    //   .status(400)
-    //   .send({ message: "Usuario no existe en la base de datos" })
+return res.status(400)
+   .send({ message: "Usuario no existe en la base de datos" })
   }
 };
 

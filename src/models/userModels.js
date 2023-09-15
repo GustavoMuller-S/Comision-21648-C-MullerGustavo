@@ -3,14 +3,20 @@ const { sequelize } = require("../database/database");
 
 const User = sequelize.define(
   "User",
-  {
-    // SE DEFINEN MODELOS DE ATRIBUTOS
+// SE DEFINEN MODELOS DE ATRIBUTOS
+  {  
     firstName: {
       type: DataTypes.STRING,
     },
     email: {
       type: DataTypes.STRING,
     },
+    clienteLink: {
+      type: DataTypes.STRING,
+    validate: {
+      isUrl: true,
+      },
+      },
   },
   {
     timestamps: true,

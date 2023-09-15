@@ -1,18 +1,22 @@
 console.log("Arranca o no arranca??"); 
 
 const express = require('express');
+const dotenv = require("dotenv");
+dotenv.config();
 const morgan = require(`morgan`);
 const cors = require(`cors`);
-const path = require("path");
+const path = require("node:path");
 const { TestConnection, port } = require("./database/database");
 const indexRoutes = require("./routes/indexRoutes");
 const userRoutes = require("./routes/userRoutes");
+
+const PORT = process.env.PORT;
 
 const app = express();
 
 /* MIDDLEWARES */
 app.use(express.urlencoded({ extended: false }));
-app.use(morgan(`Tiny`));
+app.use(morgan(`dev`));
 app.use(cors());
 app.use(express.json());
 
@@ -39,6 +43,6 @@ app.get('/', (req, res) => {
   res.send('Estamos en Vivo')
 })
 
-app.listen(port, () => {
-  console.log(`Servidor funcionando en el puerto ${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor funcionando en el puerto ${PORT}`);
 });
