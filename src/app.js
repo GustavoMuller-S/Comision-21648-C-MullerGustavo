@@ -20,15 +20,12 @@ app.use(morgan(`dev`));
 app.use(cors());
 app.use(express.json());
 
-/* ACA SE ROMPE AHORA */
 
 //establecemos la ruta de la carpeta estatica para los archivos css y js publicos
 app.set(express.static(path.join(__dirname, "public")));
 
-//motor de vistas de ejs----
 app.set("view engine", "ejs");
 
-//establecemos la carpeta views para que encuentre dinamicamente
 app.set("views", path.join(__dirname, "views"));
 
 /* DALEEEEEE */
@@ -39,9 +36,9 @@ TestConnection();
 app.use(indexRoutes);
 app.use(userRoutes);
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   res.send('Estamos en Vivo')
-})
+}) */
 
 app.listen(PORT, () => {
   console.log(`Servidor funcionando en el puerto ${PORT}`);

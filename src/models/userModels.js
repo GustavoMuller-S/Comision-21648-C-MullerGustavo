@@ -11,6 +11,9 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING,
     },
+    dataUser: {
+      type: DataTypes.STRING,
+    },
     clienteLink: {
       type: DataTypes.STRING,
     validate: {
