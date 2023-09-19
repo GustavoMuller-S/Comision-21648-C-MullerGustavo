@@ -8,9 +8,9 @@ const User = sequelize.define(
     firstName: {
       type: DataTypes.STRING,
     },
-    email: {
+/*     email: {
       type: DataTypes.STRING,
-    },
+    }, */
     dataUser: {/* deberia almacena el post del usuario */
       type: DataTypes.STRING,
     },
