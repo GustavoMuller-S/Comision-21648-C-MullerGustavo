@@ -21,7 +21,7 @@ async function TestConnection() {
   try {
     await sequelize.authenticate();
     await sequelize.sync({ alter: false });
-    console.log("Conexión a la base de datos establecida.");
+    console.log("BASE DE DATOS CONECTADA");
   } catch (error) {
     console.error("No se pudo conectar Error:", error);
   }

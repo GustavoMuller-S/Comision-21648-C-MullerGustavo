@@ -11,10 +11,10 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING,
     },
-    dataUser: {
+    dataUser: {/* deberia almacena el post del usuario */
       type: DataTypes.STRING,
     },
-    clienteLink: {
+    clienteLink: {/* deberia almacenar la imagen del post del usuario */
       type: DataTypes.STRING,
     validate: {
       isUrl: true,
@@ -27,5 +27,6 @@ const User = sequelize.define(
 );
 
 
-console.log(User === sequelize.models.User); 
+console.log(User === sequelize.models.User);
+console.log("HASTA ACA ANDA") 
 module.exports = User;
