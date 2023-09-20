@@ -1,17 +1,16 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../database/database");
 
-const User = sequelize.define(
-  "User",
+const User = sequelize.define( "User",
 // SE DEFINEN MODELOS DE ATRIBUTOS
   {  
-    firstName: {
+    firstName: {/* nombre del q postea */
       type: DataTypes.STRING,
     },
-/*     email: {
+    dataTitle: {/* titulo de post */
       type: DataTypes.STRING,
-    }, */
-    dataUser: {/* deberia almacena el post del usuario */
+    }, 
+    dataUser: {/* deberia almacenar el post del usuario */
       type: DataTypes.STRING,
     },
     clienteLink: {/* deberia almacenar la imagen del post del usuario */

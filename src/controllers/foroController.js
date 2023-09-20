@@ -1,20 +1,20 @@
 const User = require("../models/userModels");
-const userControllers = {};
+const foroController = {};
 
 /* CARGARIA ACA LOS DATOS DEL USUARIO */
-userControllers.getAllUsers = async (req, res) => {
+foroController.getAllUsers = async (req, res) => {
   const users = await User.findAll();
 
   res.render("user", { titleUser: "Usuarios", results: users });
 };
 
 //TODO: POST: PAGINA DE INICIO
-userControllers.formCreateUser = (req, res) => {
+foroController.formCreateUser = (req, res) => {
   res.render("createUser", { titleCreateUser: "Nuevo Usuario" });
 };
 
 //PARA CREAR AL USUARIO
-userControllers.postUser = async (req, res) => {
+foroController.postUser = async (req, res) => {
   const { firstName, email } = req.body;
 
   //validacion para los datos del body
@@ -42,7 +42,7 @@ userControllers.postUser = async (req, res) => {
 };
 
 //TODO: PUT PAGINA PARA EDITAR USUARIO
-userControllers.formEditUser = async (req, res) => {
+foroController.formEditUser = async (req, res) => {
   const { id } = req.params;
   const user = await User.findOne({ where: { id: id } });
   console.log(user);
@@ -52,7 +52,7 @@ userControllers.formEditUser = async (req, res) => {
   });
 };
 
-userControllers.putUser = async (req, res) => {
+foroController.putUser = async (req, res) => {
   const { firstName, email, id } = req.body;
   //validación de que no mande el dato del nombre para actualizar
   if (!firstName || !email) {
@@ -74,7 +74,7 @@ userControllers.putUser = async (req, res) => {
 
 /* DELETE TODO */
 
-userControllers.deleteUser = (req, res) => {
+foroController.deleteUser = (req, res) => {
   const { id } = req.params;
   const deleteUser = User.destroy({ where: { id: id } });
   //validacion para saber si ya existe o no en la bd
@@ -86,4 +86,4 @@ return res.status(400)
   }
 };
 
-module.exports = { userControllers };
+module.exports = { foroController };
